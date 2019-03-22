@@ -18,12 +18,8 @@ public class RoleController {
 	private IRoleService service;
 	@RequestMapping("/query")
 	public String query(Role role,Model model){
-		System.out.println("==11=");
 		List<Role> list=service.query(role);
-		for(Role i:list){
-			System.out.println(i.toString());
-		}
 		model.addAttribute("list", list);
-		return "role";
+		return "role/role";
 	}
 }

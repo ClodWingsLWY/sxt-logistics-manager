@@ -27,4 +27,7 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    void inserUserIdAndRoleId(Integer userId, Integer roleId);
+
 }
