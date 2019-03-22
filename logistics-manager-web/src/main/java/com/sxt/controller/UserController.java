@@ -50,4 +50,15 @@ public class UserController {
 		userService.saveOrUpdate(userDto);
 		return "redirect:/user/query";
 	}
+	/**
+	 * 删除用户数据
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/delete")
+	public String deleteUser(Integer id) throws Exception{
+		userService.deleteUser(id);
+		return "redirect:/user/query";
+	}
 }

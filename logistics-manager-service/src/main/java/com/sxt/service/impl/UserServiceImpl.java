@@ -39,16 +39,23 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public void deleteUser(int id) throws Exception {
+		//删除关联表中的数据
+		userMapper.deleteRoleIdByUserId(id);
+		//删除用户表中的数据
 		userMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public void getUpdateUserInfo(Integer id, Model model) {
-		if(id!=null&&id>0){
-			//更新
-		}
 		RoleExample roleExample=new RoleExample();
 		List<Role> roles=roleMapper.selectByExample(roleExample);
+		if(id!=null && id>0){
+			//更新
+			User user=userMapper.selectByPrimaryKey(id);
+			List<Integer> roleIds=userMapper.selectRoleIdByUserId(id);
+			model.addAttribute("user", user);
+			model.addAttribute("roleIds",roleIds);
+		}
 		model.addAttribute("roles", roles);
 	}
 
@@ -61,6 +68,16 @@ public class UserServiceImpl implements IUserService {
 		// 判断是添加还是修改数据
 		if(user.getUserId()!=null && user.getUserId() > 0){
 			// 表示userId存在，说明是更新
+			//1.更新用户信息
+			userMapper.updateByPrimaryKeySelective(user);
+			//2.根据用户编号删除所有的角色关系
+			userMapper.deleteRoleIdByUserId(user.getUserId());
+			//3.添加角色和用户的关联关系
+			if(roles!=null && roles.size() > 0){
+				for (Integer roleId : roles) {
+					userMapper.inserUserIdAndRoleId(user.getUserId(),roleId);
+				}
+			}
 		}else{
 			// 不存在id说明是添加数据
 			// 先添加用户数据 获取生成的userId
@@ -71,7 +88,6 @@ public class UserServiceImpl implements IUserService {
 					userMapper.inserUserIdAndRoleId(user.getUserId(),roleId);
 				}
 			}
-			
 		}
 	}
 

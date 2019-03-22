@@ -30,4 +30,8 @@ public interface UserMapper {
     
     void inserUserIdAndRoleId(Integer userId, Integer roleId);
 
+    List<Integer> selectRoleIdByUserId(Integer id);
+
+	void deleteRoleIdByUserId(Integer userId);
+
 }
