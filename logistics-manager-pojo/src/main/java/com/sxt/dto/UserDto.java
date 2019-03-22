@@ -8,7 +8,7 @@ import com.sxt.pojo.User;
  * User传输对象
  * @author lwy
  */
-public class UserDto {
+public class UserDto extends BasePage{
 	public User user;//用户信息
 	public List<Integer> roles;//关联分配的角色信息
 	public User getUser() {

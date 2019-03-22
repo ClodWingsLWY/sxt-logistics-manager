@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.github.pagehelper.PageInfo;
 import com.sxt.dto.UserDto;
 import com.sxt.pojo.User;
 import com.sxt.service.IUserService;
@@ -26,6 +27,12 @@ public class UserController {
 	public String query(User user,Model model){
 		List<User> list = userService.query(user);
 		model.addAttribute("list", list);
+		return "user/user";
+	}
+	@RequestMapping("/queryPage")
+	public String queryPage(UserDto dto,Model model){
+		PageInfo<User> pageModel = userService.queryPage(dto);
+		model.addAttribute("pageModel", pageModel);
 		return "user/user";
 	}
 	/**

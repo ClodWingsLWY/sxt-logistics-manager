@@ -31,23 +31,22 @@
 					<li><label>邮箱</label><input name="user.email" type="text" value="${user.email}" class="dfinput" /><i></i></li>
 					<li><label>分配角色</label>
 					    <div style="height: 32px;line-height: 32px;">
-					    	<c:set var="flag" value="false">
-					    		<c:forEach items="${roles}" var="role">
-						    		<!-- 
-						    			每循环一次 判断取出来的角色编号在不在用户具有的角色集合中
-						    			在就设置flag=true
-						    			不在就设置flag=false
-						    		 -->
-						    		 <c:forEach items="${roleIds }" var="rid">
-						    		 	<c:if test="${rid eq role.roleId }">
-						    		 		<c:set var="flag" value="true"></c:set>
-						    		 	</c:if>
-						    		 </c:forEach>
-						    		<input type="checkbox"  ${flag eq true?"checked":""} value="${role.roleId}" name="rolesIds">
-						    		 ${role.roleName}&nbsp;&nbsp;
-						    		<c:set var="flag" value="false"></c:set> 
-						    	</c:forEach>
-					    	</c:set>	
+					    	<c:set var="flag" value="false"></c:set>
+				    		<c:forEach items="${roles}" var="role">
+					    		<!-- 
+					    			每循环一次 判断取出来的角色编号在不在用户具有的角色集合中
+					    			在就设置flag=true
+					    			不在就设置flag=false
+					    		 -->
+					    		 <c:forEach items="${roleIds }" var="rid">
+					    		 	<c:if test="${rid eq role.roleId }">
+					    		 		<c:set var="flag" value="true"></c:set>
+					    		 	</c:if>
+					    		 </c:forEach>
+					    		<input type="checkbox"  ${flag eq true?"checked":""} value="${role.roleId}" name="roles">
+					    		 ${role.roleName}&nbsp;&nbsp;
+					    		<c:set var="flag" value="false"></c:set> 
+					    	</c:forEach>
 					    </div>
 				    </li>
 					<li><label>&nbsp;</label>

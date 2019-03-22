@@ -86,7 +86,29 @@
 		        		</tr>
 		        	</c:forEach>
 		        </tbody>
+		        <c:forEach items="${pageModel.list}" var="user">
+		        	<tr>
+		        		<td><input name="" type="checkbox" value=""></td>
+		        		<td>${user.userId}</td>
+	        			<td>${user.userName}</td>
+	        			<td>${user.realName}</td>
+	        			<td>${user.password}</td>
+	        			<td>${user.email}</td>
+	        			<td>${user.phone}</td>
+		        		<td>
+		        			<a href="/user/userUpdate?id=${user.userId}" class="tablelink">修改</a>
+	        				<a href="javascript:void(0)" onclick="deleteUser(${user.userId})" class="tablelink">删除</a>
+		        		</td>
+		        	</tr>
+		        </c:forEach>
 		    </table>
+		    <div class="inline pull-right page" style="margin-top: 20px;">
+				<form action="/user/queryPage" id="pager">
+					<input type="hidden" name="pageSize" id="pageSize" value="${pageModel.pageSize }">
+					<input type="hidden" name="pageNum" id="pageNum" value="${pageModel.pageNum }">
+				</form>
+				<jsp:include page="/pageBar.jsp"></jsp:include>
+			</div>
 	    </div>
 	    <script type="text/javascript">
 			$('.tablelist tbody tr:odd').addClass('odd');

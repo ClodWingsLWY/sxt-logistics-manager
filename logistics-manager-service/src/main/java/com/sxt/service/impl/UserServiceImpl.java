@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sxt.dto.UserDto;
 import com.sxt.mapper.RoleMapper;
 import com.sxt.mapper.UserMapper;
@@ -89,6 +91,14 @@ public class UserServiceImpl implements IUserService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public PageInfo<User> queryPage(UserDto dto) {
+		PageHelper.startPage(dto.getPageNum(), dto.getPageSize());
+		List<User> list = this.query(dto.getUser());
+		PageInfo<User> pageInfo = new PageInfo<User>(list);
+		return pageInfo;
 	}
 
 }
