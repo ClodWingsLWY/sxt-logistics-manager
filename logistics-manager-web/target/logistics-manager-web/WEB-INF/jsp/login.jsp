@@ -33,20 +33,25 @@
 	    <div class="loginbody">
 		    <span class="systemlogo"></span> 
 		    <div class="loginbox">
-		    	<ul>
-					<li><input name="username" type="text" class="loginuser" />
-					</li>
-					<li><input name="password" type="password" class="loginpwd" />
-					</li>
-					<li><input name="" type="submit" class="loginbtn" value="登录"/>
-						<label>
-							<input name="" type="checkbox" value="" checked="checked" />记住密码
-						</label>
-						<label>
-							<ahref="#">忘记密码？</a>
-						</label>
-					</li>
-				</ul>
+		    	<form action="/login.do" method="post">
+			    	<ul>
+						<li>
+							<input name="username" type="text" class="loginuser" />
+						</li>
+						<li>
+							<input name="password" type="password" class="loginpwd" />
+						</li>
+						<li>
+							<input name="" type="submit" class="loginbtn" value="登录"/>
+							<label>
+								<input name="" type="checkbox" value="" checked="checked" />记住密码
+							</label>
+							<label>
+								<font color="red">${msg}</font>
+							</label>
+						</li>
+					</ul>
+				</form>
 		    </div>
 	    </div>
 		<div style="display:none">

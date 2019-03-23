@@ -13,6 +13,7 @@ import com.github.pagehelper.PageInfo;
 import com.sxt.dto.UserDto;
 import com.sxt.pojo.User;
 import com.sxt.service.IUserService;
+import com.sxt.utils.Constant;
 
 /**
  * 角色 控制层
@@ -35,7 +36,7 @@ public class UserController {
 	@RequestMapping("/queryPage")
 	public String queryPage(UserDto dto,Model model){
 		PageInfo<User> pageModel = userService.queryPage(dto);
-		model.addAttribute("pageModel", pageModel);
+		model.addAttribute(Constant.PAGEHELP_MODEL, pageModel);
 		return "user/user";
 	}
 	/**

@@ -64,9 +64,9 @@
 		        	<c:forEach items="${list}" var="role">
 		        		<tr>
 		        			<td><input name="" type="checkbox" value=""></td>
-		        			<td>${role[roleId]}</td>
-		        			<td>${role[roleName]}</td>
-		        			<td>${role[roleDesc]}</td>
+		        			<td>${role.roleId}</td>
+		        			<td>${role.roleName}</td>
+		        			<td>${role.roleDesc}</td>
 		        			<td>
 		        				<a href="#" class="tablelink">查看</a>
 		        				<a href="#" class="tablelink">删除</a>
