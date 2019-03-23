@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,8 @@ public class UserController {
 		model.addAttribute("list", list);
 		return "user/user";
 	}
+	// 当前登录用户需要"管理员角色才能访问"
+	@RequiresRoles("管理员")
 	@RequestMapping("/queryPage")
 	public String queryPage(UserDto dto,Model model){
 		PageInfo<User> pageModel = userService.queryPage(dto);

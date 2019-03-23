@@ -25,9 +25,16 @@ public class UserServiceImpl implements IUserService {
 	private RoleMapper roleMapper;
 	@Override
 	public List<User> query(User user) {
-		UserExample example=new UserExample();
+		UserExample example = new UserExample();
+		if(user!=null){
+			if(!"".equals(user.getUserName()) && user.getUserName()!= null){
+				// 根据账号查询
+				example.createCriteria().andUserNameEqualTo(user.getUserName());
+			}
+		}
 		return userMapper.selectByExample(example);
 	}
+
 
 	@Override
 	public void addUser(User user) throws Exception {
@@ -99,6 +106,12 @@ public class UserServiceImpl implements IUserService {
 		List<User> list = this.query(dto.getUser());
 		PageInfo<User> pageInfo = new PageInfo<User>(list);
 		return pageInfo;
+	}
+	
+	@Override
+	public List<Role> queryRoleByUserId(int userId) {
+		
+		return roleMapper.queryRoleByUserId(userId);
 	}
 
 }

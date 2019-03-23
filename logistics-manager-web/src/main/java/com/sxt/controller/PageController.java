@@ -16,7 +16,7 @@ public class PageController {
 	 */
 	@RequestMapping("/")
 	public String showMain(){
-		return "main";
+		return "login";
 	}
 	
 	/**

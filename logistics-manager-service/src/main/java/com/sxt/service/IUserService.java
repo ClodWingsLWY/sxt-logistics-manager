@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 
 import com.github.pagehelper.PageInfo;
 import com.sxt.dto.UserDto;
+import com.sxt.pojo.Role;
 import com.sxt.pojo.User;
 
 public interface IUserService {
@@ -60,4 +61,13 @@ public interface IUserService {
 	 * @return
 	 */
 	public PageInfo<User> queryPage(UserDto dto);
+	
+	
+	/**
+	 * 根据用户编号获取对应的权限信息
+	 * @param userId
+	 * @return
+	 */
+	public List<Role> queryRoleByUserId(int userId);
+
 }
