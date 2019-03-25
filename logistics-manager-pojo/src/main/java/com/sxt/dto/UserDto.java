@@ -9,8 +9,8 @@ import com.sxt.pojo.User;
  * @author lwy
  */
 public class UserDto extends BasePage{
-	public User user;//用户信息
-	public List<Integer> roles;//关联分配的角色信息
+	private User user;//用户信息
+	private List<Integer> roles;//关联分配的角色信息
 	public User getUser() {
 		return user;
 	}

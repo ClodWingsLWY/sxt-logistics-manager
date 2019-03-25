@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -32,26 +33,26 @@
 	    <dl class="leftmenu">
 		    <dd>
 			    <div class="title">
-			    	<span><img src="images/leftico01.png" /></span>管理信息
+			    	<span><img src="images/leftico01.png" /></span>系统管理
 			    </div>
 		    	<ul class="menuson">
-		        <li><cite></cite><a href="index.html" target="rightFrame">首页模版</a><i></i></li>
-		        <li class="active"><cite></cite><a href="/user/queryPage" target="rightFrame">用户管理</a><i></i></li>
-		        <li><cite></cite><a href="/role/query" target="rightFrame">角色管理</a><i></i></li>
-		        <li><cite></cite><a href="/basic/query" target="rightFrame">基础数据查询</a><i></i></li>
-		        <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
-		        <li><cite></cite><a href="imglist1.html" target="rightFrame">自定义</a><i></i></li>
-		        <li><cite></cite><a href="tools.html" target="rightFrame">常用工具</a><i></i></li>
-		        <li><cite></cite><a href="filelist.html" target="rightFrame">信息管理</a><i></i></li>
-		        <li><cite></cite><a href="tab.html" target="rightFrame">Tab页</a><i></i></li>
-		        <li><cite></cite><a href="error.html" target="rightFrame">404页面</a><i></i></li>
+			        <li><cite></cite><a href="index.html" target="rightFrame">首页模版</a><i></i></li>
+			        <li class="active"><cite></cite><a href="/user/queryPage" target="rightFrame">用户管理</a><i></i></li>
+			        <li><cite></cite><a href="/role/query" target="rightFrame">角色管理</a><i></i></li>
+			        <li><cite></cite><a href="/basic/query" target="rightFrame">基础数据查询</a><i></i></li>
 		        </ul>    
 		    </dd>
 		    <dd>
 			    <div class="title">
-			    	<span><img src="images/leftico02.png" /></span>其他设置
+			    	<span><img src="images/leftico02.png" /></span>客户管理
 			    </div>
 			    <ul class="menuson">
+				    <shiro:hasAnyRoles name="业务员,操作员">
+			        	<li><cite></cite><a href="/customer/customerUpdate" target="rightFrame">新增客户</a><i></i></li>
+			        </shiro:hasAnyRoles>
+			        <shiro:hasAnyRoles name="业务员,操作员,管理员">
+			        	<li><cite></cite><a href="/customer/query" target="rightFrame">客户管理</a><i></i></li>
+			        </shiro:hasAnyRoles>
 			        <li><cite></cite><a href="#">编辑内容</a><i></i></li>
 			        <li><cite></cite><a href="#">发布信息</a><i></i></li>
 			        <li><cite></cite><a href="#">档案列表显示</a><i></i></li>

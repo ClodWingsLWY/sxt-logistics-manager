@@ -59,7 +59,7 @@ public class UserController {
 	@RequestMapping("/saveOrUpdate")
 	public String saveOrUpdate(UserDto userDto) throws Exception{
 		userService.saveOrUpdate(userDto);
-		return "redirect:/user/query";
+		return "redirect:/user/queryPage";
 	}
 	/**
 	 * 删除用户数据
@@ -70,6 +70,6 @@ public class UserController {
 	@RequestMapping("/delete")
 	public String deleteUser(Integer id) throws Exception{
 		userService.deleteUser(id);
-		return "redirect:/user/query";
+		return "redirect:/user/queryPage";
 	}
 }

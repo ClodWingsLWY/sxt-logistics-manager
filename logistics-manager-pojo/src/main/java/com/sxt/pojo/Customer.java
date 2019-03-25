@@ -110,4 +110,12 @@ public class Customer {
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", orderId=" + orderId + ", baseId=" + baseId + ", userId="
+				+ userId + ", customerName=" + customerName + ", mobilePhone=" + mobilePhone + ", email=" + email
+				+ ", address=" + address + ", idCard=" + idCard + ", cSex=" + cSex + ", remark=" + remark + "]";
+	}
+    
 }

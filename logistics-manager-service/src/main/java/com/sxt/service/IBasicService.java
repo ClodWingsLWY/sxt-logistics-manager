@@ -22,5 +22,7 @@ public interface IBasicService {
 	
 	public void getUpdateInfo(Integer id, Model m);
 
+	public List<BasicData> getBasicDataByParentName(String parentName);
+
 }
 

@@ -3,7 +3,7 @@ package com.sxt.dto;
 import com.sxt.pojo.BasicData;
 
 public class BasicDataDto extends BasePage {
-	public BasicData basic;
+	private BasicData basic;
 
 	public BasicData getBasic() {
 		return basic;

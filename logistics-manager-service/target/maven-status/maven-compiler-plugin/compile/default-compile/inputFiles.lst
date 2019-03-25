@@ -1,5 +1,7 @@
 D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\impl\RoleServiceImpl.java
 D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\IBasicService.java
+D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\ICustomerService.java
+D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\impl\CustomerServiceImpl.java
 D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\impl\BasicServiceImpl.java
 D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\IRoleService.java
 D:\project\java\wokingSpace\engineering\logistics-manager\logistics-manager-service\src\main\java\com\sxt\service\impl\UserServiceImpl.java
